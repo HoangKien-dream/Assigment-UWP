@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Assigment.Pages.MySongPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Assigment.Pages"
+    xmlns:entity="using:Assigment.Entity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="SongTemplate"                          >
+            <Grid x:ConnectionId='3' Margin="0,12,0,12"                                          >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="150"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image x:ConnectionId='4'                             MaxHeight="100" Stretch="Fill"/>
+
+                <StackPanel Margin="12,0,0,0" Grid.Column="1" >
+                    <TextBlock x:ConnectionId='5'                      FontSize="14" FontWeight="SemiBold" Style="{ThemeResource BaseTextBlockStyle}"
+                        HorizontalAlignment="Left" Margin="0,0,0,6" LineHeight="20"/>
+                    <TextBlock x:ConnectionId='6'                             FontFamily="Segoe UI" FontWeight="Normal" Style="{ThemeResource BodyTextBlockStyle}"
+                        TextTrimming="CharacterEllipsis" Width="350" MaxLines="1"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:ConnectionId='7'                        HorizontalAlignment="Left" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,0,0,0"/>
+                        <TextBlock Text=" Author " HorizontalAlignment="Left" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Text=" ⋅ " FontFamily="Segoe UI" FontSize="12" FontWeight="Bold"
+                            HorizontalAlignment="Left"/>
+                        <TextBlock x:ConnectionId='8'                        HorizontalAlignment="Left" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
+                        <TextBlock Text=" Singer" HorizontalAlignment="Left" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <ScrollViewer Background="Azure">
+        <StackPanel>
+            <ListView x:ConnectionId='9' x:Name="ListSong"
+                                                                  
+                      ItemTemplate="{StaticResource SongTemplate}"
+     Height="739"
+     MinWidth="550"
+     BorderThickness="4"
+     CornerRadius="10"
+     Background="AliceBlue"
+     BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}">
+
+                <!-- Data Template Used: -->
+                <!-- The data template is bound to a custom-created data type called CustomDataObject. -->
+                <!-- The full code for the class can be found in this page's source code, but its attributes are referenced/bound below. -->
+
+
+            </ListView>
+            <Grid BorderThickness="10" BorderBrush="DarkSlateGray" CornerRadius="10" Margin="40,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10,10,30,0">
+                    <PersonPicture x:ConnectionId='11' x:Name="thumbnail" Height="132"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <MediaPlayerElement x:ConnectionId='10' x:Name="MyMediaPlayer" 
+                   
+                    AutoPlay="False"
+                    AreTransportControlsEnabled="True" Height="122" Width="600" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+
